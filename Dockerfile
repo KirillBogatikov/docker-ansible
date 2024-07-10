@@ -19,6 +19,8 @@ FROM alpine
 
 WORKDIR /temp/sh
 
+RUN apk add git bash
+
 COPY ansible/install.sh ./ansible.sh
 COPY semaphore/install.sh ./semaphore.sh
 
