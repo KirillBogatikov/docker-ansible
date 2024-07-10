@@ -1,8 +1,10 @@
-FROM alpine as semaphore-build
+FROM alpine AS semaphore-build
+
+WORKDIR /go/src
+
+RUN git clone https://github.com/semaphoreui/semaphore.git ./semaphore
 
 WORKDIR /go/src/semaphore
-
-RUN git clone https://github.com/semaphoreui/semaphore.git ./
 
 ENV OPENTOFU_VERSION="1.7.0"
 ENV TERRAFORM_VERSION="1.8.2"
