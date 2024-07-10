@@ -2,6 +2,8 @@ FROM alpine AS semaphore-build
 
 WORKDIR /go/src
 
+RUN apk add git
+
 RUN git clone https://github.com/semaphoreui/semaphore.git ./semaphore
 
 WORKDIR /go/src/semaphore

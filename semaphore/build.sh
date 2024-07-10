@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apk add --no-cache -U libc-dev curl nodejs npm git gcc zip unzip tar
+apk add --no-cache -U libc-dev curl nodejs npm gcc zip unzip tar
 
 curl -sL https://taskfile.dev/install.sh | sh
 
