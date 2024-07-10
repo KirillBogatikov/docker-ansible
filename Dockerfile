@@ -41,7 +41,7 @@ RUN rm -rf /temp/sh
 USER 1001
 
 ENV VIRTUAL_ENV=$ANSIBLE_VENV_PATH
-ENV PATH =$ANSIBLE_VENV_PATH/bin:$PATH
+ENV PATH=$ANSIBLE_VENV_PATH/bin:$PATH
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD [ "/usr/local/bin/server-wrapper"]
