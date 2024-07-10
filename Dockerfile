@@ -26,7 +26,7 @@ ARG ANSIBLE_VENV_PATH=/opt/semaphore/apps/ansible/${ANSIBLE_VERSION}/venv
 
 RUN git clone https://github.com/semaphoreui/semaphore.git semaphore
 
-COPY --chown=1001:0 ./semaphore/deployment/docker/server/ansible.cfg /etc/ansible/ansible.cfg
+RUN cp ./semaphore/deployment/docker/server/ansible.cfg /etc/ansible/ansible.cfg && chown 1001:0 /etc/ansible/ansible.cfg
 COPY --from=semaphore-build /go/src/semaphore/deployment/docker/server/server-wrapper /usr/local/bin/
 COPY --from=semaphore-build /go/src/semaphore/bin/semaphore /usr/local/bin/
 COPY --from=semaphore-build /tmp/tofu /usr/local/bin/
