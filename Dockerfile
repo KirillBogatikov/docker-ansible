@@ -20,10 +20,12 @@ FROM alpine
 WORKDIR /temp/sh
 
 COPY ansible/install.sh ./ansible.sh
-
-RUN chmod +x ./ansible.sh && ./ansible.sh
-
 COPY semaphore/install.sh ./semaphore.sh
+
+RUN chmod +x ./ansible.sh && \
+    chmod +x ./semaphore.sh
+
+RUN ./ansible.sh
 
 ENV ANSIBLE_VERSION=9.4.0
 ARG ANSIBLE_VENV_PATH=/opt/semaphore/apps/ansible/${ANSIBLE_VERSION}/venv
@@ -36,7 +38,7 @@ COPY --from=semaphore-build /go/src/semaphore/bin/semaphore /usr/local/bin/
 COPY --from=semaphore-build /tmp/tofu /usr/local/bin/
 COPY --from=semaphore-build /tmp/terraform /usr/local/bin/
 
-RUN chmod +x ./semaphore.sh && ./semaphore.sh
+RUN ./semaphore.sh
 
 RUN rm -rf /temp/sh
 
