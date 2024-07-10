@@ -1,4 +1,4 @@
-FROM goland:alpine AS semaphore-build
+FROM golang:alpine AS semaphore-build
 
 WORKDIR /go/src
 
