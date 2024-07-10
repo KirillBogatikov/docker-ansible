@@ -6,8 +6,8 @@ RUN git clone https://github.com/semaphoreui/semaphore.git ./semaphore
 
 WORKDIR /go/src/semaphore
 
-ENV OPENTOFU_VERSION 1.7.0
-ENV TERRAFORM_VERSION 1.8.2
+ENV OPENTOFU_VERSION=1.7.0
+ENV TERRAFORM_VERSION=1.8.2
 
 COPY semaphore/build.sh ./build.sh
 
@@ -23,7 +23,7 @@ RUN chmod +x ./ansible.sh && ./ansible.sh
 
 COPY semaphore/install.sh ./semaphore.sh
 
-ENV ANSIBLE_VERSION 9.4.0
+ENV ANSIBLE_VERSION=9.4.0
 ARG ANSIBLE_VENV_PATH=/opt/semaphore/apps/ansible/${ANSIBLE_VERSION}/venv
 
 RUN git clone https://github.com/semaphoreui/semaphore.git semaphore
@@ -40,8 +40,8 @@ RUN rm -rf /temp/sh
 
 USER 1001
 
-ENV VIRTUAL_ENV $ANSIBLE_VENV_PATH
-ENV PATH $ANSIBLE_VENV_PATH/bin:$PATH
+ENV VIRTUAL_ENV=$ANSIBLE_VENV_PATH
+ENV PATH =$ANSIBLE_VENV_PATH/bin:$PATH
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD [ "/usr/local/bin/server-wrapper"]
