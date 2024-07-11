@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 apk add --no-cache -U libc-dev curl nodejs npm gcc zip unzip tar
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 apk add --no-cache-U \
   bash curl git gnupg mysql-client openssh-client-default python3 py3-pip rsync sshpass tar tini tzdata unzip wget zip

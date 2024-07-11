@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 apk add sudo python3 py3-pip openssl ca-certificates sshpass openssh-client rsync git
 apk add --virtual build-dependencies python3-dev libffi-dev musl-dev gcc cargo build-base
